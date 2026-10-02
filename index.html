@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eira Sharma - Professional Portfolio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0c1421',
+                            DEFAULT: '#152238', // Main Navy
+                            light: '#233658',   // Lighter Navy Accent
+                        },
+                        ice: {
+                            DEFAULT: '#D1E2F1', // Light Blue Accent
+                            dark: '#BFD4EC',    // Secondary Light Blue
+                            soft: '#EAF2F8',    // Very soft background blue
+                            bg: '#F5F8FC',      // Off-white base
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar styling for polish */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F8FC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233658;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #152238;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy font-sans antialiased selection:bg-ice selection:text-navy">
+
+    <!-- STICKY NAVBAR -->
+    <header class="sticky top-0 z-50 bg-navy/95 backdrop-blur-md text-white border-b border-navy-light shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo / Name Placeholder -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-ice text-navy font-bold text-xl flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
+                        Eira Sharma
+                    </div>
+                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-ice transition-colors">
+                        Eira Sharma
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#statement" class="text-slate-300 hover:text-ice transition-colors py-1 border-b-2 border-transparent hover:border-ice">
+                        Personal Statement
+                    </a>
+                    <a href="#skills" class="text-slate-300 hover:text-ice transition-colors py-1 border-b-2 border-transparent hover:border-ice">
+                        Skills & Expertise
+                    </a>
+                    <a href="#projects" class="text-slate-300 hover:text-ice transition-colors py-1 border-b-2 border-transparent hover:border-ice">
+                        Projects & Files
+                    </a>
+                    <a href="#contact" class="text-slate-300 hover:text-ice transition-colors py-1 border-b-2 border-transparent hover:border-ice">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#projects" class="bg-ice hover:bg-ice-dark text-navy font-semibold px-4 py-2.5 rounded-lg text-sm transition-all shadow-sm hover:shadow-md flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span>[Download Resume]</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-navy-light focus:outline-none" aria-label="Toggle navigation menu">
+                    <svg class="w-6 h-6" id="menu-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg class="w-6 h-6 hidden" id="menu-icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-navy-light px-4 pt-3 pb-6 space-y-3">
+            <a href="#statement" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-ice hover:bg-navy-light">
+                Personal Statement
+            </a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-ice hover:bg-navy-light">
+                Skills & Expertise
+            </a>
+            <a href="#projects" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-ice hover:bg-navy-light">
+                Projects & Files
+            </a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-ice hover:bg-navy-light">
+                Contact
+            </a>
+            <div class="pt-2">
+                <a href="#projects" class="w-full bg-ice text-navy font-semibold px-4 py-2.5 rounded-lg text-center block text-sm shadow">
+                    [Download Resume]
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO HEADER SECTION -->
+    <section class="bg-gradient-to-b from-navy via-navy to-navy-light text-white py-20 lg:py-28 relative overflow-hidden">
+        <!-- Subtle Background Decorative Element -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D1E2F1_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <!-- Status Badge Placeholder -->
+                <div class="inline-flex items-center gap-2 bg-navy-light/80 border border-ice/30 px-3 py-1.5 rounded-full text-xs font-semibold text-ice mb-6 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>[Available for Opportunities / Hiring]</span>
+                </div>
+
+                <!-- Main Headline Placeholder -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+                    Hello, I'm <span class="text-ice underline decoration-ice/40 underline-offset-8">Eira Sharma</span>.
+                </h1>
+
+                <!-- Subtitle Placeholder -->
+                <p class="text-xl sm:text-2xl text-slate-300 font-light mb-8 leading-relaxed">
+                    Finance Student at Rutgers Business School
+                </p>
+
+                <!-- Brief Tagline Placeholder -->
+                <p class="text-slate-300 text-base sm:text-lg mb-10 max-w-2xl leading-relaxed">
+                    [Insert a high-impact 1-2 sentence elevator pitch here highlighting your core focus, domain expertise, and what drives your professional work.]
+                </p>
+
+                <!-- Action CTA Buttons -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#projects" class="bg-ice hover:bg-ice-dark text-navy font-bold px-6 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 text-sm sm:text-base">
+                        <span>View Projects & Files</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <a href="#statement" class="bg-navy-light/60 hover:bg-navy-light text-white border border-ice/40 px-6 py-3.5 rounded-lg font-medium transition-all text-sm sm:text-base">
+                        Read Personal Statement
+                    </a>
+                    <a href="#contact" class="text-ice hover:text-white underline underline-offset-4 px-2 py-3.5 font-medium transition-colors text-sm sm:text-base">
+                        Get In Touch →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- SECTION 1: PERSONAL STATEMENT / ABOUT (#statement) -->
+        <section id="statement" class="py-20 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-200">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-light bg-ice/60 px-3 py-1 rounded-md mb-3 inline-block">
+                            Section 01
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+                            Personal Statement
+                        </h2>
+                    </div>
+                    <p class="text-slate-500 text-sm mt-2 md:mt-0">
+                        [Core Career Philosophy & Professional Background]
+                    </p>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left Sidebar / Quick Info Card -->
+                    <div class="lg:col-span-4 bg-ice-bg border border-ice/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+                        <!-- Profile Image / Avatar Placeholder -->
+                        <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-ice flex items-center justify-center text-navy font-bold text-3xl mb-6 shadow-inner mx-auto lg:mx-0 border-2 border-white">
+                            [Photo]
+                        </div>
+
+                        <h3 class="text-xl font-bold text-navy mb-1 text-center lg:text-left">
+                            [Your Full Name]
+                        </h3>
+                        <p class="text-slate-600 text-sm mb-6 text-center lg:text-left font-medium">
+                            [Your Title / Role]
+                        </p>
+
+                        <!-- Quick Details List -->
+                        <div class="space-y-4 pt-4 border-t border-ice/60 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500 font-medium">Location:</span>
+                                <span class="text-navy font-semibold">[City, Country / Remote]</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500 font-medium">Experience:</span>
+                                <span class="text-navy font-semibold">[X+ Years Industry Exp.]</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500 font-medium">Education:</span>
+                                <span class="text-navy font-semibold">[Degree / Institution]</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500 font-medium">Status:</span>
+                                <span class="text-emerald-700 font-semibold bg-emerald-100 px-2.5 py-0.5 rounded-full text-xs">[Open to Opportunities]</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick CV Download Link -->
+                        <div class="mt-8 pt-4">
+                            <a href="#projects" class="w-full bg-navy hover:bg-navy-light text-white text-center font-semibold py-3 px-4 rounded-xl transition-colors block text-sm shadow-sm">
+                                [Download Official CV (PDF)]
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Narrative Block -->
+                    <div class="lg:col-span-8 space-y-8">
+                        
+                        <!-- Highlight Blockquote / Mission Statement -->
+                        <div class="bg-navy text-white p-6 sm:p-8 rounded-2xl shadow-md border-l-8 border-ice relative">
+                            <svg class="w-10 h-10 text-ice/30 absolute top-4 right-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                            <p class="text-ice font-semibold text-xs tracking-wider uppercase mb-2">[ Core Mission Statement ]</p>
+                            <blockquote class="text-lg sm:text-xl font-medium leading-relaxed italic text-slate-100">
+                                "[Insert your primary mission statement, core belief, or professional motto here. Example: Dedicated to designing scalable, human-centered digital experiences that merge clean architecture with intuitive visual aesthetics.]"
+                            </blockquote>
+                        </div>
+
+                        <!-- Detailed Text Paragraphs Placeholders -->
+                        <div class="prose prose-slate max-w-none text-navy leading-relaxed space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-navy mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-navy-light"></span>
+                                    Professional Background & Experience
+                                </h4>
+                                <p class="text-slate-700 leading-relaxed bg-ice-bg/50 p-4 rounded-xl border border-slate-100">
+                                    [Insert 2-4 sentences describing your background. Discuss your education, career history, major domain experience, and key milestones that shaped your skill set.]
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-lg font-bold text-navy mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-navy-light"></span>
+                                    Work Ethic & Methodology
+                                </h4>
+                                <p class="text-slate-700 leading-relaxed bg-ice-bg/50 p-4 rounded-xl border border-slate-100">
+                                    [Insert 2-3 sentences detailing your approach to problem-solving, collaboration, continuous learning, leadership style, and quality delivery.]
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-lg font-bold text-navy mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-navy-light"></span>
+                                    Future Goals & Objectives
+                                </h4>
+                                <p class="text-slate-700 leading-relaxed bg-ice-bg/50 p-4 rounded-xl border border-slate-100">
+                                    [Insert 1-2 sentences summarizing what kind of roles, projects, or technical challenges you are looking to take on next.]
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SKILLS SECTION (#skills) -->
+        <section id="skills" class="py-20 bg-ice-bg border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-300">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-light bg-ice px-3 py-1 rounded-md mb-3 inline-block">
+                            Section 02
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+                            Skills & Capabilities
+                        </h2>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-2 md:mt-0">
+                        [Categorized Technical & Professional Competencies]
+                    </p>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mb-10" id="skill-filters">
+                    <button class="skill-tab active bg-navy text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-sm" data-category="all">
+                        All Skills
+                    </button>
+                    <button class="skill-tab bg-white text-navy hover:bg-ice border border-ice-dark px-5 py-2.5 rounded-xl font-medium text-sm transition-all" data-category="technical">
+                        Technical & Development
+                    </button>
+                    <button class="skill-tab bg-white text-navy hover:bg-ice border border-ice-dark px-5 py-2.5 rounded-xl font-medium text-sm transition-all" data-category="tools">
+                        Tools & Frameworks
+                    </button>
+                    <button class="skill-tab bg-white text-navy hover:bg-ice border border-ice-dark px-5 py-2.5 rounded-xl font-medium text-sm transition-all" data-category="leadership">
+                        Strategy & Soft Skills
+                    </button>
+                </div>
+
+                <!-- Skills Grid Container -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
+                    
+                    <!-- Skill Card Category 1 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="technical">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-ice text-navy">
+                                Technical
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: Advanced]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 1 - e.g. Frontend Architecture]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note on application e.g. React, Next.js, Tailwind, HTML5/CSS3]</p>
+                        <!-- Pill Tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 3]</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 2 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="technical">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-ice text-navy">
+                                Technical
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: Expert]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 2 - e.g. Backend Development]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note on application e.g. Node.js, Python, PostgreSQL, REST APIs]</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 3]</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="tools">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-navy-light text-white">
+                                Tools
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: Advanced]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 3 - e.g. DevOps & Infrastructure]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note e.g. Git, Docker, AWS, CI/CD Pipelines]</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 4 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="tools">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-navy-light text-white">
+                                Tools
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: Intermediate]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 4 - e.g. UI/UX & Design Systems]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note e.g. Figma, Prototyping, Wireframing, Accessibility]</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 5 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="leadership">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-navy text-white">
+                                Strategy
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: Expert]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 5 - e.g. Project Leadership]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note e.g. Agile/Scrum, Mentorship, Sprint Planning]</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 6 -->
+                    <div class="skill-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow" data-category="leadership">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-navy text-white">
+                                Soft Skills
+                            </span>
+                            <span class="text-xs text-slate-500 font-medium">[Proficiency: High]</span>
+                        </div>
+                        <h3 class="font-bold text-navy text-lg mb-2">[Skill Name 6 - e.g. Technical Communication]</h3>
+                        <p class="text-slate-600 text-sm mb-4">[Brief 1-line note e.g. Stakeholder Presentations, Technical Writing]</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 1]</span>
+                            <span class="px-2.5 py-1 bg-ice-soft text-navy font-semibold text-xs rounded-lg">[Tag 2]</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROJECTS AND FILES SECTION (#projects) -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-200">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-light bg-ice/60 px-3 py-1 rounded-md mb-3 inline-block">
+                            Section 03
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+                            Projects & Downloadable Files
+                        </h2>
+                    </div>
+                    <p class="text-slate-500 text-sm mt-2 md:mt-0">
+                        [Portfolio Showcase, Code Repositories, & Supporting Documents]
+                    </p>
+                </div>
+
+                <!-- PROJECTS GRID SECTION -->
+                <h3 class="text-xl font-bold text-navy mb-6 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-navy-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Featured Projects
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col group">
+                        <!-- Image Area Placeholder -->
+                        <div class="bg-navy p-8 h-48 flex items-center justify-center relative overflow-hidden text-center">
+                            <div class="absolute inset-0 bg-navy-light opacity-40 group-hover:opacity-20 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <span class="bg-ice/20 border border-ice/40 text-ice text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
+                                    [Project Category 1]
+                                </span>
+                                <p class="text-white font-bold text-lg">[Project Graphic / Image Placeholder]</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy mb-2 group-hover:text-navy-light transition-colors">
+                                    [Insert Project Title 1]
+                                </h4>
+                                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                    [Insert 2-3 sentence project description explaining the problem solved, tech stack utilized, and strategic outcomes.]
+                                </p>
+                                
+                                <!-- Tech Stack Badges -->
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 1]</span>
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 2]</span>
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 3]</span>
+                                </div>
+                            </div>
+
+                            <!-- Links Footer -->
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 text-xs font-semibold">
+                                <a href="#" target="_blank" class="text-navy hover:text-navy-light flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    [Live Demo Link]
+                                </a>
+                                <a href="#" target="_blank" class="text-slate-600 hover:text-navy flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    [Source Code]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col group">
+                        <!-- Image Area Placeholder -->
+                        <div class="bg-navy-light p-8 h-48 flex items-center justify-center relative overflow-hidden text-center">
+                            <div class="absolute inset-0 bg-navy opacity-30 group-hover:opacity-10 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <span class="bg-ice/20 border border-ice/40 text-ice text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
+                                    [Project Category 2]
+                                </span>
+                                <p class="text-white font-bold text-lg">[Project Graphic / Image Placeholder]</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy mb-2 group-hover:text-navy-light transition-colors">
+                                    [Insert Project Title 2]
+                                </h4>
+                                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                    [Insert 2-3 sentence project description explaining the problem solved, tech stack utilized, and strategic outcomes.]
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 1]</span>
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 2]</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 text-xs font-semibold">
+                                <a href="#" target="_blank" class="text-navy hover:text-navy-light flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    [Live Demo Link]
+                                </a>
+                                <a href="#" target="_blank" class="text-slate-600 hover:text-navy flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    [Source Code]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col group">
+                        <!-- Image Area Placeholder -->
+                        <div class="bg-navy p-8 h-48 flex items-center justify-center relative overflow-hidden text-center">
+                            <div class="absolute inset-0 bg-navy-light opacity-40 group-hover:opacity-20 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <span class="bg-ice/20 border border-ice/40 text-ice text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
+                                    [Project Category 3]
+                                </span>
+                                <p class="text-white font-bold text-lg">[Project Graphic / Image Placeholder]</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Body -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy mb-2 group-hover:text-navy-light transition-colors">
+                                    [Insert Project Title 3]
+                                </h4>
+                                <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                    [Insert 2-3 sentence project description explaining the problem solved, tech stack utilized, and strategic outcomes.]
+                                </p>
+                                
+                                <div class="flex flex-wrap gap-1.5 mb-6">
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 1]</span>
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 2]</span>
+                                    <span class="text-xs bg-ice-bg border border-ice text-navy px-2.5 py-0.5 rounded-md font-medium">[Tech Stack 3]</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2 text-xs font-semibold">
+                                <a href="#" target="_blank" class="text-navy hover:text-navy-light flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    [Live Demo Link]
+                                </a>
+                                <a href="#" target="_blank" class="text-slate-600 hover:text-navy flex items-center gap-1 hover:underline">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    [Source Code]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DOWNLOADABLE FILES & DOCUMENTS CENTER -->
+                <div class="bg-navy text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden">
+                    <div class="max-w-3xl mb-8">
+                        <span class="bg-navy-light text-ice text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-3 inline-block border border-ice/30">
+                            Download Center
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
+                            Files & Supporting Documents
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base">
+                            Access verified credentials, formal resume versions, case study PDF briefs, and reference documents.
+                        </p>
+                    </div>
+
+                    <!-- Files Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        
+                        <!-- File Card 1 -->
+                        <a href="javascript:void(0)" onclick="triggerDownload('[Your_Name]_Resume.pdf')" class="bg-navy-light/90 hover:bg-navy-light border border-ice/30 p-5 rounded-xl flex items-center justify-between group transition-all hover:border-ice">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-ice text-navy flex items-center justify-center font-bold text-xs shrink-0">
+                                    PDF
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white text-sm group-hover:text-ice transition-colors">
+                                        [Official Resume.pdf]
+                                    </p>
+                                    <p class="text-slate-400 text-xs">[Updated 2026 • 150 KB]</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-ice group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                        </a>
+
+                        <!-- File Card 2 -->
+                        <a href="javascript:void(0)" onclick="triggerDownload('[Your_Name]_Executive_Brief.pdf')" class="bg-navy-light/90 hover:bg-navy-light border border-ice/30 p-5 rounded-xl flex items-center justify-between group transition-all hover:border-ice">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-ice text-navy flex items-center justify-center font-bold text-xs shrink-0">
+                                    PDF
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white text-sm group-hover:text-ice transition-colors">
+                                        [Portfolio Brief / One-Pager]
+                                    </p>
+                                    <p class="text-slate-400 text-xs">[Summary Sheet • 320 KB]</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-ice group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                        </a>
+
+                        <!-- File Card 3 -->
+                        <a href="javascript:void(0)" onclick="triggerDownload('[Your_Name]_Certifications.zip')" class="bg-navy-light/90 hover:bg-navy-light border border-ice/30 p-5 rounded-xl flex items-center justify-between group transition-all hover:border-ice">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-ice text-navy flex items-center justify-center font-bold text-xs shrink-0">
+                                    ZIP
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white text-sm group-hover:text-ice transition-colors">
+                                        [Certifications Archive]
+                                    </p>
+                                    <p class="text-slate-400 text-xs">[Diplomas & Credentials • 2.4 MB]</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-ice group-hover:translate-y-0.5 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER & CONTACT SECTION (#contact) -->
+    <footer id="contact" class="bg-navy-900 text-white border-t border-navy-light pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-navy-light">
+                
+                <!-- Left Info Column -->
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-ice text-navy font-bold text-xl flex items-center justify-center">
+                            [YN]
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-white">[Your Name Here]</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+                        [Insert a short concluding sentence inviting inquiries, collaborations, or professional networking opportunities.]
+                    </p>
+                    
+                    <!-- Copy Email Quick Action Box -->
+                    <div class="pt-2">
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Primary Direct Contact:</p>
+                        <div class="inline-flex items-center gap-2 bg-navy border border-navy-light rounded-xl p-1.5 pl-4 max-w-full">
+                            <span class="text-ice text-sm font-mono truncate" id="email-address">[your.email@example.com]</span>
+                            <button onclick="copyEmail()" class="bg-ice hover:bg-ice-dark text-navy text-xs font-bold px-3 py-2 rounded-lg transition-colors shrink-0 flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span id="copy-text">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Links Column -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold text-ice uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><a href="#statement" class="hover:text-ice transition-colors">Personal Statement</a></li>
+                        <li><a href="#skills" class="hover:text-ice transition-colors">Skills & Expertise</a></li>
+                        <li><a href="#projects" class="hover:text-ice transition-colors">Projects & Downloads</a></li>
+                        <li><a href="#" class="hover:text-ice transition-colors">Back to Top ↑</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Social Links Column -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold text-ice uppercase tracking-wider">Social & Professional</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><a href="https://linkedin.com" target="_blank" class="hover:text-ice transition-colors flex items-center gap-2">[LinkedIn Profile]</a></li>
+                        <li><a href="https://github.com" target="_blank" class="hover:text-ice transition-colors flex items-center gap-2">[GitHub Profile]</a></li>
+                        <li><a href="https://twitter.com" target="_blank" class="hover:text-ice transition-colors flex items-center gap-2">[Twitter / X Profile]</a></li>
+                        <li><a href="#" target="_blank" class="hover:text-ice transition-colors flex items-center gap-2">[External Portfolio]</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <p>© 2026 [Your Name Here]. All rights reserved.</p>
+                <p class="text-slate-500">Designed with Navy & Light Blue contrast theme.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // 1. Mobile Menu Drawer Toggle Functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        });
+
+        // Close mobile drawer when clicking any anchor link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            });
+        });
+
+        // 2. Interactive Skills Category Filter
+        const skillTabs = document.querySelectorAll('.skill-tab');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        skillTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                skillTabs.forEach(t => {
+                    t.classList.remove('bg-navy', 'text-white', 'shadow-sm');
+                    t.classList.add('bg-white', 'text-navy', 'hover:bg-ice');
+                });
+
+                // Add active class to clicked tab
+                tab.classList.remove('bg-white', 'text-navy', 'hover:bg-ice');
+                tab.classList.add('bg-navy', 'text-white', 'shadow-sm');
+
+                const category = tab.getAttribute('data-category');
+
+                // Filter skill cards
+                skillCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 3. Copy Email to Clipboard Feature
+        function copyEmail() {
+            const emailText = document.getElementById('email-address').innerText;
+            
+            // Clipboard copy execution
+            const tempInput = document.createElement('input');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Toast UI feedback text update
+            const copyText = document.getElementById('copy-text');
+            const originalText = copyText.innerText;
+            copyText.innerText = 'Copied!';
+            
+            setTimeout(() => {
+                copyText.innerText = originalText;
+            }, 2000);
+        }
+
+        // 4. Download Notification Helper (replaces window.alert)
+        function triggerDownload(fileName) {
+            // Create a non-intrusive toast notification element
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-6 right-6 bg-navy text-white px-5 py-3.5 rounded-xl shadow-2xl border border-ice text-sm font-medium z-50 flex items-center gap-3 transition-all duration-300 transform translate-y-0 opacity-100';
+            toast.innerHTML = `
+                <svg class="w-5 h-5 text-ice animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span>Placeholder download triggered for <strong>${fileName}</strong></span>
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
